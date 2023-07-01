@@ -7,15 +7,12 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <ul>
           {isAuthenticated ? (
             <>
               Bienvenido {user}
-              <li>
                 <Link to="/" onClick={logout}>
                   Salir
                 </Link>
-              </li>
             </>
           ) : (
             <>
@@ -27,7 +24,6 @@ const Header = () => {
               </li>
             </>
           )}
-        </ul>
         <p>{user}</p>
       </nav>
     </header>
