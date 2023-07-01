@@ -14,6 +14,7 @@ import Home from "../pages/Home";
 
 import RegistroPage from "../pages/autenticacion/RegistroPage";
 import LoginPage from "../pages/autenticacion/LoginPage";
+import ProtectedRoutes from "../ProtectedRoutes";
 
 function Content() {
   return (
@@ -23,21 +24,23 @@ function Content() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registro" element={<RegistroPage />} />
 
-        <Route path="/clientes" element={<ClientesPage />} />
-        <Route path="/clientes/new" element={<ClientesForm />} />
-        <Route path="/clientes/edit/:id" element={<ClientesForm />} />
-        <Route path="/productos" element={<ProductosPage />} />
-        <Route path="/productos/new" element={<ProductosForm />} />
-        <Route path="/productos/edit/:id" element={<ProductosForm />} />
-        <Route path="/usuarios" element={<UsuariosPage />} />
-        <Route path="/usuarios/new" element={<UsuariosForm />} />
-        <Route path="/usuarios/edit/:id" element={<UsuariosForm />} />
-        <Route path="/facturas" element={<FacturasPage />} />
-        <Route path="/facturas/new" element={<FacturasForm />} />
-        <Route path="/facturas/edit/:id" element={<FacturasForm />} />
-        <Route path="/ventas" element={<VentasPage />} />
-        <Route path="/ventas/new" element={<VentasForm />} />
-        <Route path="/ventas/edit/:id" element={<VentasForm />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/clientes" element={<ClientesPage />} />
+          <Route path="/clientes/new" element={<ClientesForm />} />
+          <Route path="/clientes/edit/:id" element={<ClientesForm />} />
+          <Route path="/productos" element={<ProductosPage />} />
+          <Route path="/productos/new" element={<ProductosForm />} />
+          <Route path="/productos/edit/:id" element={<ProductosForm />} />
+          <Route path="/facturas" element={<FacturasPage />} />
+          <Route path="/facturas/new" element={<FacturasForm />} />
+          <Route path="/facturas/edit/:id" element={<FacturasForm />} />
+          <Route path="/ventas" element={<VentasPage />} />
+          <Route path="/ventas/new" element={<VentasForm />} />
+          <Route path="/ventas/edit/:id" element={<VentasForm />} />
+          <Route path="/usuarios" element={<UsuariosPage />} />
+          <Route path="/usuarios/new" element={<UsuariosForm />} />
+          <Route path="/usuarios/edit/:id" element={<UsuariosForm />} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>

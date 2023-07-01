@@ -1,16 +1,19 @@
-import Navbar from './Navbar';
-import Header from './Header';
-import Content from './Content';
+import Navbar from "./Navbar";
+import Header from "./Header";
+import Content from "./Content";
+import { AuthProvider } from "../context/AuthContext";
 
 const AppLayout = () => {
   return (
-    <div className="app-layout">
-      <Navbar />
-      <div className="main-content">
-        <Header />
-        <Content />
+    <AuthProvider>
+      <div className="app-layout">
+        <Navbar />
+        <div className="main-content">
+          <Header />
+          <Content />
+        </div>
       </div>
-    </div>
+    </AuthProvider>
   );
 };
 
